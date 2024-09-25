@@ -1,0 +1,127 @@
+:root {
+  font-family:  Nunito, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+/*RESET CSS*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+  
+  ul li {
+    list-style: none;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #000000;
+  }
+  
+  h1,  
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  a,
+  li {
+    font-family: "Roboto", sans-serif;
+  }
+  
+  h1 {
+    font-size: 64px;
+  }
+  
+  h2 {
+    font-size: 46px;
+  }
+  
+  h3 {
+    font-size: 22px;
+  }
+  
+  h4 {
+    font-size: 20px;
+    color: #393939;
+  }
+  p {
+    font-size: 16px;
+    font-weight: 100;
+  }
+
+  .VentajaSection {
+    background-color: #F2F2F2;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+ 
+  }
+
+  .VentajaSection-row {
+    
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(200px, auto);
+    gap: 2rem;
+  }
+
+.TestimonioSection{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.TestimonioSection-row{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+}
+
+
+.TestimonioSection-row-row{
+  width: 70%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(200px, auto);
+  gap: 2rem;
+}
+
+.TestimonioSection-text{
+
+  padding: 3rem 0rem;
+  display: flex;
+  justify-content: center;
+
+
+}
+
+.TestimonioSection-text-span{
+  display: flex;
+  width: 70%;
+  font-size: 30px;
+  font-weight: 500;
+}
+/* 
+svg {
+  background-color: rgba(255, 255, 255, 0.163);
+  border-radius: 100%;
+  padding: 0.4rem;
+} */
