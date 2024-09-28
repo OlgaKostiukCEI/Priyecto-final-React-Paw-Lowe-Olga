@@ -74,12 +74,17 @@
 }
 
 .Section-col-btn-mas{
+    font-size: 16px;
     background-color: var( --yellow-color);
     border-radius: 60px;
     color: var(--white);
     width: 60%;
     height: 40px;
     cursor: pointer;
+}
+.Mas-info {
+    font-size: 16px;
+    color: var(--white);
 }
 
 .Section-col-btn-delete{
