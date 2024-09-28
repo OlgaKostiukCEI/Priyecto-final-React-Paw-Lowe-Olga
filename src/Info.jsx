@@ -34,7 +34,7 @@ export const Info =() => {
 
 const Texto = (props)=>{
 
-    const {imagen,  nombre, raza, edad, genero, descripcion, caracter, gato,  _id} = props
+    const {imagen,  nombre, raza, edad, genero, descripcion, caracter} = props
 return(
     <>
            <section className='Info' >
