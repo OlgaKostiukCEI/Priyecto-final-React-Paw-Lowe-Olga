@@ -69,7 +69,7 @@ const Gato =(props) =>{
             </div>
 
             <div className="Section-col-btn">
-            <button className="Section-col-btn-mas"><NavLink to={`/info/${_id}`}>Más información</NavLink>  </button>
+            <button className="Section-col-btn-mas"><NavLink className="Section-col-btn-mas" to={`/info/${_id}`} >Más información</NavLink>  </button>
                 
             <button className="Section-col-btn-delete"onClick={() => borrarGato(_id)}>Eliminar</button>
             </div>
