@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import './Gatos.css'
 
 export const Gatos = () => {
@@ -69,8 +69,9 @@ const Gato =(props) =>{
             </div>
 
             <div className="Section-col-btn">
-                <button className="Section-col-btn-mas">Más info</button>
-                <button className="Section-col-btn-delete"onClick={() => borrarGato(_id)}>Eliminar</button>
+            <button className="Section-col-btn-mas"><NavLink to={`/info/${_id}`}>Más información</NavLink>  </button>
+                
+            <button className="Section-col-btn-delete"onClick={() => borrarGato(_id)}>Eliminar</button>
             </div>
         </section>
  
