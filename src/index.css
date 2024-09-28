@@ -34,11 +34,14 @@
   h3,
   h4,
   h5,
-  h6,
+  h6 {
+    font-family: "Nunito", sans-serif;
+  }
+
   p,
   a,
   li {
-    font-family: "Roboto", sans-serif;
+    font-family: "Lato", sans-serif;
   }
   
   h1 {
@@ -50,7 +53,8 @@
   }
   
   h3 {
-    font-size: 22px;
+    font-size: 3rem;
+    font-weight: 600;
   }
   
   h4 {
@@ -61,67 +65,3 @@
     font-size: 16px;
     font-weight: 100;
   }
-
-  .VentajaSection {
-    background-color: #F2F2F2;
-    display: flex;
-    justify-content: center;
-    padding: 2rem;
- 
-  }
-
-  .VentajaSection-row {
-    
-    width: 70%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-    grid-auto-rows: minmax(200px, auto);
-    gap: 2rem;
-  }
-
-.TestimonioSection{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 2rem;
-}
-
-.TestimonioSection-row{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-
-}
-
-
-.TestimonioSection-row-row{
-  width: 70%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  grid-auto-rows: minmax(200px, auto);
-  gap: 2rem;
-}
-
-.TestimonioSection-text{
-
-  padding: 3rem 0rem;
-  display: flex;
-  justify-content: center;
-
-
-}
-
-.TestimonioSection-text-span{
-  display: flex;
-  width: 70%;
-  font-size: 30px;
-  font-weight: 500;
-}
-/* 
-svg {
-  background-color: rgba(255, 255, 255, 0.163);
-  border-radius: 100%;
-  padding: 0.4rem;
-} */

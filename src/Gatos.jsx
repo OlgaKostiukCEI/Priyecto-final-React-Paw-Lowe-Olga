@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import './Gatos.css'
 
 export const Gatos = () => {
 
@@ -14,30 +15,64 @@ export const Gatos = () => {
         setGatos (datos)
       }
 
+    let borrarGato = async (_id) => {
+        let options = {
+            method: "delete"
+        }
+        let peticion = await fetch(`${VITE_API}/gatos/id/${_id}`, options)
+        let datos = await peticion.json()
+        setGatos(datos)
+    }
+
     useEffect(()=>{
        pedirGatos();
     }, [])
 
     return(
         <>
-        
-        <h4>contenido de listado de gatos</h4>
-        <ul>
+        <section className="Content">
+        <h3>Nuestros Gatos</h3>
+        <p>Descubre a nuestros adorables felinos en busca de un hogar amoroso. Cada uno tiene su propia personalidad única, desde cariñosos y dulces hasta juguetones y aventureros.</p>
+        </section>
+   
+    
+        <section className="Section">
+            <ul className="Section-grid">
             {gatos.length === 0 && <li>No hay Gatos</li>}
             {gatos.length !== 0 && gatos.map(gato =>
-               <Gato key = {gato._id} {...gato}/>
+               <Gato key = {gato._id} {...gato} borrarGato={borrarGato}/>
             )}
-        </ul>
+            </ul>
+        </section>
         </>
     )
 }
 const Gato =(props) =>{
 
-    const {imagem,  nombre, raza, edad, genero, descripcion, caracter,} = props
+    const {imagen,  nombre, raza, edad, genero, descripcion, caracter,borrarGato, gato, _id} = props
     return (
-        <ul> 
-            <li>{nombre}</li>
-        </ul>
+        <section className="Section-col"> 
+
+            <img src={imagen} alt={`Imagen de ${nombre}`} className="Section-img" />
+
+            <div className="Section-col-info ">
+                <ul className="Section-col-info-text">
+                    <li className="Section-col-info-detail Name ">{nombre}</li>
+                    <li className="Section-col-info-detail Raza">{raza}</li>
+                </ul>
+
+                <ul className="Section-col-info-text ">
+                    <li className="Section-col-info-detail Dot">{edad}</li>
+                    <li className="Section-col-info-detail Dot">{genero}</li>
+                    <li className="Section-col-info-detail">{caracter}</li>
+                </ul>
+            </div>
+
+            <div className="Section-col-btn">
+                <button className="Section-col-btn-mas">Más info</button>
+                <button className="Section-col-btn-delete"onClick={() => borrarGato(_id)}>Eliminar</button>
+            </div>
+        </section>
  
 
     )

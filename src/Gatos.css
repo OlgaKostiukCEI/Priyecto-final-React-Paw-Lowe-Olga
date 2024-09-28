@@ -1,0 +1,91 @@
+.Content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    max-width: 1200px;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 2em;
+}
+.Section {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+.Section-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: .625rem;
+    grid-auto-rows: minmax(350px, auto);
+    gap: 2rem;
+}
+.Section-img{
+    background-color: antiquewhite;
+    width: 21.875rem;
+    height: 25rem;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+
+}
+
+.Section-col{
+    display: flex;
+    flex-direction: column;
+    border-bottom-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+
+}
+
+.Section-col-info{
+
+    color: rgb(255, 255, 255);
+    background-color: var(--violet-color);
+
+}
+
+.Section-col-info-text{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;;
+    margin: 2em;
+}
+
+.Section-col-info-detail.Name {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.Section-col-info-detail.Raza {
+    font-size: 24px;
+    font-weight: 200;
+}
+.Dot::after {
+    content: " •";
+}
+.Section-col-btn{
+    background-color: var(--violet-color);
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 0em 2em 2em 2em;
+}
+
+.Section-col-btn-mas{
+    background-color: var( --yellow-color);
+    border-radius: 60px;
+    color: var(--white);
+    width: 60%;
+    height: 40px;
+    cursor: pointer;
+}
+
+.Section-col-btn-delete{
+    background-color: var( --yellow-color);
+    border-radius: 60px;
+    color: var(--white);
+    width: 40%;
+    cursor: pointer;
+}
