@@ -1,62 +1,55 @@
-
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import './Info.css'
-import { Link, useParams } from 'react-router-dom';
 
-export const Info =() => {
-    const [info,setInfo] =useState ([])
-    const {_id} = useParams()
-    const {VITE_API} = import.meta.env;
+export const Info = () => {
+    const { _id } = useParams();  // Obtén el _id de los parámetros de la URL
+    const [info, setInfo] = useState(null)  // Inicializar con null ya que esperamos un objeto
+    const { VITE_API } = import.meta.env
 
-    let pedirInfo =async () => {
+    // Función para obtener la información del gato
+    const pedirInfo = async () => {
         let peticion = await fetch(`${VITE_API}/gatos/id/${_id}`)
-        let datos =await peticion.json()
-        setInfo(datos)
-        console.log(datos)
+        let datos = await peticion.json()
+        setInfo(datos)  // Guardamos la información del gato
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         pedirInfo()
-    }, [_id])
+    }, [_id])  // Se vuelve a ejecutar cuando cambia _id
 
-    return(
+    return (
         <>
-        <ul>
-       
-        <Texto key= {info._id} {...info}/>
-          
-        </ul>
-    
+            {/* Mostrar mensaje de carga si la info no está lista */}
+            {!info ? <p>Cargando...</p> : <Texto {...info} />} 
         </>
-    )
-
+    );
 }
 
-const Texto = (props)=>{
+const Texto = (props) => {
+    const { imagen, nombre, raza, edad, genero, descripcion, caracter } = props
 
-    const {imagen,  nombre, raza, edad, genero, descripcion, caracter} = props
-return(
-    <>
-           <section className='Info' >
+    return (
+        <section className='Info'>
             <div className='Info-wrapper'>
-                <img src={imagen} alt={`Imagen de ${nombre}`}  className='Info-img'/>
+                <img src={imagen} alt={`Imagen de ${nombre}`} className='Info-img' />
             </div>
 
             <div className='Info-col'>
-                <p className='Descriptoin'>{descripcion}</p>
+                <h1 className='Info-col-nombre'>{nombre}</h1>
+                <p className='Info-col-description'>{descripcion}</p>
                 <div className='Info-col-detail'>
                     <ul className='Info-col-detail-text'>
-                        <li className='Info-col-detail-text-data'> Raza: {raza}</li>
-                        <li className='Info-col-detail-text-data'> Genero: {genero}</li>
+                        <li className='Info-col-detail-text-data'><b>Raza:</b> {raza}</li>
+                        <li className='Info-col-detail-text-data'><b>Género:</b> {genero}</li>
                     </ul>
-                    <ul>
-                        <li>Edad: {edad}</li>
-                        <li>Caracter: {caracter}</li>
+                    <ul className='Info-col-detail-text'>
+                        <li className='Info-col-detail-text-data'><b>Edad: </b>{edad}</li>
+                        <li className='Info-col-detail-text-data'><b>Carácter:</b> {caracter}</li>
                     </ul>
-
                 </div>
+                <span>*Se entrega con contrato de adopción, con chip, vacunada, desparasitada y con compromiso de esterilización.</span>
             </div>
-       </section>
-    </>
-)
+        </section>
+    )
 }

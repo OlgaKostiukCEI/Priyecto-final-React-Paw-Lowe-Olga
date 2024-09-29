@@ -6,6 +6,15 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
 }
+
+:root {
+
+  --yellow-color: #F8B133;
+  --black-color: #1D1D1D;
+  --violet-color: #7C58D3;
+  --white : #ffffff;
+  }
+
 /*RESET CSS*/
 * {
     box-sizing: border-box;
