@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, createContext } from "react"
 import { Link, NavLink } from "react-router-dom"
 import './Gatos.css'
+import { FormularioAnadir } from "./Components/FormularioAnadir"
 
+export const GatosContent = createContext()
 export const Gatos = () => {
 
 
@@ -30,12 +32,13 @@ export const Gatos = () => {
 
     return(
         <>
+
+        <GatosContent.Provider value={{gatos, setGatos}}>//
         <section className="Content">
         <h3>Nuestros Gatos</h3>
         <p>Descubre a nuestros adorables felinos en busca de un hogar amoroso. Cada uno tiene su propia personalidad única, desde cariñosos y dulces hasta juguetones y aventureros.</p>
         </section>
-   
-    
+
         <section className="Section">
             <ul className="Section-grid">
             {gatos.length === 0 && <li>No hay Gatos</li>}
@@ -43,7 +46,11 @@ export const Gatos = () => {
                <Gato key = {gato._id} {...gato} borrarGato={borrarGato}/>
             )}
             </ul>
+         
         </section>
+        <FormularioAnadir/>
+        </GatosContent.Provider>
+     
         </>
     )
 }
@@ -51,6 +58,7 @@ const Gato =(props) =>{
 
     const {imagen,  nombre, raza, edad, genero, descripcion, caracter,borrarGato, gato, _id} = props
     return (
+        <>
         <section className="Section-col"> 
 
             <img src={imagen} alt={`Imagen de ${nombre}`} className="Section-img" />
@@ -62,7 +70,7 @@ const Gato =(props) =>{
                 </ul>
 
                 <ul className="Section-col-info-text ">
-                    <li className="Section-col-info-detail Dot">{edad}</li>
+                    <li className="Section-col-info-detail Dot">{edad} años</li>
                     <li className="Section-col-info-detail Dot">{genero}</li>
                     <li className="Section-col-info-detail">{caracter}</li>
                 </ul>
@@ -74,7 +82,9 @@ const Gato =(props) =>{
             <button className="Section-col-btn-delete"onClick={() => borrarGato(_id)}>Eliminar</button>
             </div>
         </section>
- 
+
+    </>
 
     )
 }
+

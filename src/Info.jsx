@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import './Info.css'
+import { Header } from './Components/Header'
+
+
 
 export const Info = () => {
     const { _id } = useParams();  // Obtén el _id de los parámetros de la URL
@@ -30,6 +33,9 @@ const Texto = (props) => {
     const { imagen, nombre, raza, edad, genero, descripcion, caracter } = props
 
     return (
+        <>
+        <Header/>
+        
         <section className='Info'>
             <div className='Info-wrapper'>
                 <img src={imagen} alt={`Imagen de ${nombre}`} className='Info-img' />
@@ -51,5 +57,9 @@ const Texto = (props) => {
                 <span>*Se entrega con contrato de adopción, con chip, vacunada, desparasitada y con compromiso de esterilización.</span>
             </div>
         </section>
+
+
+        </>
+
     )
 }

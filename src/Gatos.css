@@ -93,4 +93,5 @@
     color: var(--white);
     width: 40%;
     cursor: pointer;
+    font-size: 16px;
 }

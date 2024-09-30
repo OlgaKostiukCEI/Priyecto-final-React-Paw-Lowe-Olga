@@ -1,3 +1,4 @@
+import { Banner } from './Components/Banner'
 import { Header } from './Components/Header'
 import { Gatos } from './Gatos'
 import './Home.css'
@@ -8,7 +9,7 @@ export const Home = ()=>{
     return(
     <>
     <Header/>
-    <h2>Cotenido Home</h2>
+    <Banner/>
     <Gatos/>
     <Perros/>
     </>
