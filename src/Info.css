@@ -52,3 +52,13 @@
 .Info-col-detail-text-data{
     padding: .5em;
 }
+
+.Actualizar{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    max-width: 1200px;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 2em;
+}

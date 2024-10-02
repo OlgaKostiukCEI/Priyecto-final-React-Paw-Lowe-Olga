@@ -33,7 +33,7 @@ export const Gatos = () => {
     return(
         <>
 
-        <GatosContent.Provider value={{gatos, setGatos}}>//
+        <GatosContent.Provider value={{gatos, setGatos}}>
         <section className="Content">
         <h3>Nuestros Gatos</h3>
         <p>Descubre a nuestros adorables felinos en busca de un hogar amoroso. Cada uno tiene su propia personalidad única, desde cariñosos y dulces hasta juguetones y aventureros.</p>
@@ -81,6 +81,7 @@ const Gato =(props) =>{
                 
             <button className="Section-col-btn-delete"onClick={() => borrarGato(_id)}>Eliminar</button>
             </div>
+            
         </section>
 
     </>
