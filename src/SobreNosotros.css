@@ -1,0 +1,60 @@
+.Section-content{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    max-width: 1200px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 4em 0em 4em 0em;
+}
+
+.Section-texto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Section-texto-h2{
+    width: 80%;
+    text-align: center;
+    line-height: 1em;
+}
+
+.Section-texto-p{
+    width: 80%;
+    text-align: center;
+    padding: 2em;
+}
+
+
+.Section-info{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 4em;
+    background-color: #F6F6F6;
+    padding: 2em;
+    border-radius: 1em;
+}
+
+.Section-info-ul{
+    text-align: center;
+}
+
+.Section-info-li{
+    font-weight: 500;
+}
+
+
+.Numeros{
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--violet-color);
+    padding: .3em;
+}
+
+.Numeros::after{
+    content: "+";
+}

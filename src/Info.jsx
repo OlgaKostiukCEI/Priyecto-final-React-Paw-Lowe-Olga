@@ -20,7 +20,7 @@ export const Info = () => {
 
   // Función para llenar el formulario con la info actual
   let actualizarInfo = () => {
-    console.log(info);
+    console.log(info)
     if (info) {
       formularioActualizarInfo.current["_id"].value = info._id
       formularioActualizarInfo.current["Imagen"].value = info.imagen
@@ -34,7 +34,7 @@ export const Info = () => {
       // Desplazar la vista hacia el formulario
       formularioRef.current.scrollIntoView({ behavior: "smooth" })
     }
-  };
+  }
 
   // Función para actualizar la info del gato
   let updateInfo = async (e) => {
@@ -81,7 +81,7 @@ export const Info = () => {
 }
 
 const Texto = (props) => {
-  const { _id, imagen, nombre, raza, edad, genero, descripcion, caracter, actualizarInfo, updateInfo, formularioActualizarInfo, formularioRef, infoRef, } = props;
+  const { _id, imagen, nombre, raza, edad, genero, descripcion, caracter, actualizarInfo, updateInfo, formularioActualizarInfo, formularioRef, infoRef, } = props
 
   return (
     <>

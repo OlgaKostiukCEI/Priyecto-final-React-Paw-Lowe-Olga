@@ -14,7 +14,7 @@
   --negro: #393939;
   /* Tipografía */
   --tipo-principal: Nunito, sans-serif;
-  --tipo-secundaria: Lato;
+  --tipo-secundaria: Lato, sans-serif;
 }
 
 /* Desactivamos los animations en el caso de que el usuario haya configurado el modo sin animation */
@@ -127,6 +127,7 @@ table, tr, td {
 
 /* Evitamos problemas con los SVG */
 svg {
+  height: 35px;
   width: 100%;
   display: block;
   fill: currentColor;

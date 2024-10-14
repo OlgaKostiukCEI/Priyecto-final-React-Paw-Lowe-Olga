@@ -1,5 +1,6 @@
 .Logo{
-    width: 200px;
+    width: 150px;
+    cursor: pointer;
 }
 .Header {
     width: 100%;
@@ -22,7 +23,7 @@
 .Header-li{
     text-decoration: none;
     color: rgb(23, 23, 23);
-    font-size: 1.25rem;
+    font-size: 1rem;
     text-transform: uppercase;
 }
 

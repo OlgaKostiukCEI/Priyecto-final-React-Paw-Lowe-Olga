@@ -1,20 +1,21 @@
-import { useState, createContext, useContext } from 'react';
-import './Header.css';
+import { useState, createContext, useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+import './Header.css'
 
-const HeaderContext = createContext();
+const HeaderContext = createContext()
 
 export const Header = () => {
-    const [menu, setMenu] = useState(false);
+    const [menu, setMenu] = useState(false)
     const toggleMenu = () => {
-        setMenu(!menu);
-    };
+        setMenu(!menu)
+    }
 
     const info = [
         { id: 0, texto: 'Sobre Nosotros' },
         { id: 1, texto: 'Gatos' },
         { id: 2, texto: 'Perros' },
         { id: 3, texto: 'Contacto' },
-    ];
+    ]
 
     return (
         <HeaderContext.Provider value={{ toggleMenu, info, menu }}>
@@ -27,12 +28,21 @@ export const Header = () => {
     );
 }
 
-const Logo = () => (
-    <img src="/Logo-yellow.png" alt="logo" className='Logo' />
-);
+const Logo = () => {
+    const navigate = useNavigate();  // Crea una instancia de navigate
+
+    const logoClick = () => {
+        navigate('/home');  // Redirige a la página /home
+    };
+
+    return (
+        <img  src="/Logo-yellow.png" alt="logo" className='Logo' onClick={logoClick}  // Asigna la función al evento onClick
+/>
+    )
+}
 
 const Boton = () => {
-    const { toggleMenu } = useContext(HeaderContext);
+    const { toggleMenu } = useContext(HeaderContext)
     return (
         <button className='Header-button' onClick={toggleMenu}>
             <svg xmlns="http://www.w3.org/2000/svg" className="icon iconTabler iconTablerMenu2" width="36" height="36" viewBox="0 0 24 24" strokeWidth="1" stroke="#000000" fill="none" strokeLinecap="round" strokeLinejoin="round">

@@ -1,48 +1,49 @@
-import { useRef, useContext } from 'react'
-import './FormularioAnadir.css'
-import { GatosContent } from '../Gatos' // Importamos contexto'
+import { useContext, useRef } from 'react'
+import './FormularioAnadirPerro.css'
+import { PerrosContent } from '../Perros'
 
-export const FormularioAnadir = () => {
-    const { setGatos } = useContext(GatosContent)
 
-    const { VITE_API } = import.meta.env
+export const FormularioAnadirPerro = () => {
+    const {setPerros} =useContext(PerrosContent)
+    const {VITE_API} = import.meta.env
 
-    let anadirGatoFormulario = useRef(null)
 
-    let postGato = async (e) => {
+    let anadirPerroFormulario = useRef(null)
+
+    let postPerro = async (e) => {
         e.preventDefault()
 
         let nuevo = {
-            imagen: anadirGatoFormulario.current['imagen'].value,
-            nombre: anadirGatoFormulario.current['nombre'].value,
-            raza: anadirGatoFormulario.current['raza'].value,
-            edad: anadirGatoFormulario.current['edad'].value,
-            genero: anadirGatoFormulario.current['genero'].value,
-            descripcion: anadirGatoFormulario.current['descripcion'].value,
-            caracter: anadirGatoFormulario.current['caracter'].value,
+            imagen: anadirPerroFormulario.current['imagen'].value,
+            nombre: anadirPerroFormulario.current['nombre'].value,
+            raza: anadirPerroFormulario.current['raza'].value,
+            edad: anadirPerroFormulario.current['edad'].value,
+            genero: anadirPerroFormulario.current['genero'].value,
+            descripcion: anadirPerroFormulario.current['descripcion'].value,
+            caracter: anadirPerroFormulario.current['caracter'].value,
         }
 
         let options = {
             method: 'POST',
             body: JSON.stringify(nuevo),
             headers: {
-                'Content-type': 'application/json'
+                'Content-type' : 'application/json'
             }
         }
 
-        let peticion = await fetch(`${VITE_API}/gatos`, options)
+        let peticion = await fetch (`${VITE_API}/perros`, options)
         let datos = await peticion.json()
-        setGatos(datos)
+        setPerros(datos)
         console.log(datos)
     }
 
     return (
         <>
             <section className="Content">
-                <h3>Añadir Gato</h3>
-                <span>Subir información de gato nuevo</span>
+                <h3>Añadir Perro</h3>
+                <span>Subir información de perro nuevo</span>
 
-                <form ref={anadirGatoFormulario} onSubmit={postGato} className="Formulario">
+                <form ref={anadirPerroFormulario} onSubmit={postPerro} className="Formulario">
                     <input className="Formulario-input" type="url" name="imagen" placeholder="https://example.com" />
                     <input className="Formulario-input" type="text" name="nombre" placeholder="Nombre" />
                     <input className="Formulario-input" type="text" name="raza" placeholder="Raza" />
