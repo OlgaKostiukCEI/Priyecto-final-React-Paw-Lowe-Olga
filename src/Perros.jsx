@@ -35,7 +35,7 @@ export const Perros = () => {
     return(
         <>
         <PerrosContent.Provider value={{perros, setPerros}}>
-        <section className="Content">
+        <section id="perros" className="Content">
         <h3>Nuestros Perros</h3>
         <p>Descubre a nuestros adorables perros, cada uno con una historia única y un corazón lleno de amor. Desde cachorros juguetones hasta compañeros leales, ofrecemos una variedad de perros que están listos para encontrar su hogar definitivo. Ven y conoce a tu nuevo mejor amigo. ¡La adopción te está esperando!</p>
        </section>

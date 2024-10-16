@@ -1,4 +1,7 @@
+import { Adopcion } from './Adopcion'
+import { Beneficios } from './Beneficios'
 import { Banner } from './Components/Banner'
+import { Footer } from './Components/Footer'
 import { Header } from './Components/Header'
 import { Gatos } from './Gatos'
 import './Home.css'
@@ -16,6 +19,9 @@ export const Home = ()=>{
     <Presentacion/>
     <Gatos/>
     <Perros/>
+    <Beneficios/>
+    <Adopcion/>
+    <Footer/>
     </>
     )
   

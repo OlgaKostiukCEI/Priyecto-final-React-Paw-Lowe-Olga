@@ -1,0 +1,40 @@
+.Beneficios-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: .625rem;
+    /* grid-auto-rows: minmax(350px, auto); */
+    gap: 2rem;}
+
+.Beneficios-grid-section{
+    display: flex;
+    align-items: center;
+    background-color: #F9F9F9;
+    height: 14rem;
+    padding: 1em;
+    border-radius: 1.5em;
+    }
+
+.Beneficios-grid-section-info{
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+
+}
+.Beneficios-grid-section-info-h4{
+    font-size: 1.125rem;
+    /* margin: 1em; */
+}
+
+.Beneficios-grid-section-info-p{
+    font-size: 14px;
+    /* margin: 1em; */
+}
+
+.icon{
+    background-color: var(--yellow-color);
+    stroke: #F9F9F9;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    padding: .4em;
+}

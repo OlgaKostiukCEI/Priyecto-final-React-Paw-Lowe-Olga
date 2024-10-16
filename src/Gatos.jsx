@@ -34,7 +34,7 @@ export const Gatos = () => {
         <>
 
         <GatosContent.Provider value={{gatos, setGatos}}>
-        <section className="Content">
+        <section id="gatos" className="Content">
         <h3>Nuestros Gatos</h3>
         <p>Descubre a nuestros adorables felinos en busca de un hogar amoroso. Cada uno tiene su propia personalidad única, desde cariñosos y dulces hasta juguetones y aventureros.</p>
         </section>

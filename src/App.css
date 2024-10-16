@@ -130,7 +130,7 @@ svg {
   height: 35px;
   width: 100%;
   display: block;
-  fill: currentColor;
+  /* fill: currentColor; */
 }
 
 /* (Probándolo, no usar en producción) En el caso de añadir una  */

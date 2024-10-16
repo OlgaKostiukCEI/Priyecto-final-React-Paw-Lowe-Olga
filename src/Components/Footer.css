@@ -1,0 +1,36 @@
+.Footer{
+    margin: 2em;
+}
+
+.Footer-box{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Footer-box-logo {
+    width: 7rem;
+}
+
+.Footer-box-menu-info{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5em;
+}
+
+.Footer-box-contacto-info{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5em;
+}
+
+.Footer-box-contacto-info-menu{
+    font-weight: 700;
+}
+
+.Footer-box-contacto-info-contacto{
+    font-weight: 700;
+}

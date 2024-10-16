@@ -11,10 +11,10 @@ export const Header = () => {
     }
 
     const info = [
-        { id: 0, texto: 'Sobre Nosotros' },
-        { id: 1, texto: 'Gatos' },
-        { id: 2, texto: 'Perros' },
-        { id: 3, texto: 'Contacto' },
+        { id: 0, texto: 'Sobre Nosotros', anchor: '#sobre-nosotros' },
+        { id: 1, texto: 'Gatos', anchor: '#gatos' },
+        { id: 2, texto: 'Perros', anchor: '#perros' },
+        { id: 3, texto: 'Contacto', anchor: '#contacto' },
     ]
 
     return (
@@ -69,8 +69,10 @@ const Nav = () => {
 }
 
 const Li = (props) => {
-    const { texto } = props;
+    const { texto, anchor } = props;
     return (
-        <li className='Header-li'>{texto}</li>
+        <li className='Header-li'>
+            <a href={anchor}>{texto}</a>
+        </li>
     );
 }

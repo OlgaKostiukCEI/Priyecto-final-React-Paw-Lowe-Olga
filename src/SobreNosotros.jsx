@@ -3,7 +3,7 @@ import './SobreNosotros.css'
 export const SobreNosotros = ( ) =>{
     return(
         <>
-        <section className='Section-content'>
+        <section id='sobre-nosotros' className='Section-content'>
             <div className='Section-texto'>
                 <h2 className='Section-texto-h2'>Creando un Mundo Donde Cada
                 Patita Encuentre un Hogar</h2>
