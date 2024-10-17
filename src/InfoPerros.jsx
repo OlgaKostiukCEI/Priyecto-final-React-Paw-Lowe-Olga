@@ -111,7 +111,7 @@ const Texto =(props)=>{
             </ul>
           </div>
           <p> *Se entrega con contrato de adopción, con chip, vacunada, desparasitada y con compromiso de esterilización. </p>
-          <button onClick={actualizarInfoPerros}>Actualizar</button>
+          <button className="Boton" onClick={actualizarInfoPerros}>Actualizar</button>
           {/* Al hacer click, llenamos el formulario */}
         </div>
       </section>
@@ -133,7 +133,7 @@ const Texto =(props)=>{
           <input className="Formulario-input" type="text" name="Genero" placeholder="Genero" />
           <input className="Formulario-input" type="text" name="Descripcion" placeholder="Descripcion" />
           <input className="Formulario-input" type="text" name="Caracter" placeholder="Caracter" />
-          <input className="Formulario-input" type="submit" value="Actualizar información" />
+          <input className="Input-btn" type="submit" value="Actualizar información" />
         </form>
       </section>
         </>

@@ -85,6 +85,7 @@ const Texto = (props) => {
 
   return (
     <>
+    
       <Header />
       <section className="Info" ref={infoRef}> {/* Usar la ref aquí */}
         <div className="Info-wrapper">
