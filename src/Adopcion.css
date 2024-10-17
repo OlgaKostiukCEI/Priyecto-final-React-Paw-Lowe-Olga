@@ -15,7 +15,6 @@
     align-items: center;
     text-align: center;
     margin: 2em;
- 
 }
 
 .Section-img-happystory{
@@ -32,4 +31,11 @@
 
 .Section-col-info-detail-happystory.Descripcion{
     font-size: 1.125rem;
+}
+
+@media (max-width:650px) {
+    .Happystory {
+        display: flex;
+        flex-direction: column;
+       }
 }

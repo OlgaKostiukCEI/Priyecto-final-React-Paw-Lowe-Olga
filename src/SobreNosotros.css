@@ -58,3 +58,13 @@
 .Numeros::after{
     content: "+";
 }
+
+@media (max-width:650px) {
+    .Section-info{
+        display: flex;
+        flex-direction: column;
+    }
+    .Section-texto-h2 {
+        font-size: 1.5rem;
+    }
+}

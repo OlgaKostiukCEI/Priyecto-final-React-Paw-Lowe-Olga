@@ -34,3 +34,10 @@
 .Footer-box-contacto-info-contacto{
     font-weight: 700;
 }
+
+@media (max-width:650px) {
+    .Footer-box {
+        width: 100%;
+        display: flex;
+        flex-direction: column;}
+}

@@ -25,8 +25,6 @@
     height: 25rem;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-
-
 }
 
 .Section-col{
@@ -34,14 +32,11 @@
     flex-direction: column;
     border-bottom-left-radius: 20px;
     border-bottom-left-radius: 20px;
-
 }
 
 .Section-col-info{
-
     color: rgb(255, 255, 255);
     background-color: var(--violet-color);
-
 }
 
 .Section-col-info-text{
@@ -94,4 +89,11 @@
     width: 40%;
     cursor: pointer;
     font-size: 16px;
+}
+
+@media (max-width:650px) {
+    .Section-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+}
 }

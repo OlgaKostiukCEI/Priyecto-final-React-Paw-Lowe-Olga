@@ -53,3 +53,17 @@ path {
     color: #F8B133;
 }
 
+@media (max-width:650px) {
+    .Section-info-presentacion{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Section-info-ul-presentacion{
+        display: flex;
+        flex-direction: column;
+    }
+    .Section-texto-h2-presentacion{
+        font-size: 1.5rem;
+    }
+}

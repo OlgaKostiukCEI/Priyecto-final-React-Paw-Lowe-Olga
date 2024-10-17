@@ -86,7 +86,6 @@ const Texto = (props) => {
   return (
     <>
       <Header />
-
       <section className="Info" ref={infoRef}> {/* Usar la ref aquí */}
         <div className="Info-wrapper">
           <img src={imagen} alt={`Imagen de ${nombre}`} className="Info-img" />
@@ -107,7 +106,7 @@ const Texto = (props) => {
             <ul className="Info-col-detail-text">
               <li className="Info-col-detail-text-data">
                 <b>Edad: </b>
-                {edad}
+                {edad} años
               </li>
               <li className="Info-col-detail-text-data">
                 <b>Carácter:</b> {caracter}
@@ -115,7 +114,7 @@ const Texto = (props) => {
             </ul>
           </div>
           <p> *Se entrega con contrato de adopción, con chip, vacunada, desparasitada y con compromiso de esterilización. </p>
-          <button onClick={actualizarInfo}>Actualizar</button>
+          <button className="Boton" onClick={actualizarInfo}>Actualizar</button>
           {/* Al hacer click, llenamos el formulario */}
         </div>
       </section>
@@ -137,9 +136,10 @@ const Texto = (props) => {
           <input className="Formulario-input" type="text" name="Genero" placeholder="Genero" />
           <input className="Formulario-input" type="text" name="Descripcion" placeholder="Descripcion" />
           <input className="Formulario-input" type="text" name="Caracter" placeholder="Caracter" />
-          <input className="Formulario-input" type="submit" value="Actualizar información" />
+          <input className="Input-btn" type="submit" value="Actualizar información" />
         </form>
       </section>
+      
     </>
   )
 }
