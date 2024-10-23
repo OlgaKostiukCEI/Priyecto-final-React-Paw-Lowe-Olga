@@ -1,24 +1,31 @@
+// Importaciones necesarias desde React y React Router
 import { useRef, useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import "./InfoPerros.css"
 import { Header } from "./Components/Header"
 import { Footer } from "./Components/Footer"
 
-
+// Componente principal InfoPerros
 export const InfoPerros =() =>{
+
+    // Obtenemos el parámetro _id de la URL
     const {_id} = useParams()
     const [infoPerros, setInfoPerros] = useState(null)
     const {VITE_API} = import.meta.env
+
+    // Referencias a los formularios y secciones para desplazarse con scroll
     const formularioActualizarInfoPerros = useRef(null)
     const formularioRefPerros = useRef(null)
     const infoRefPerros = useRef(null)
 
-const pedirInfoPerros = async () =>{
-    let peticion = await fetch(`${VITE_API}/perros/id/${_id}`)
-    let datos = await peticion.json()
-    setInfoPerros(datos)
+    // Función para obtener la información del perro
+    const pedirInfoPerros = async () =>{
+      let peticion = await fetch(`${VITE_API}/perros/id/${_id}`)
+      let datos = await peticion.json()
+      setInfoPerros(datos)
 }
 
+// Función para llenar el formulario con la info actual
 let actualizarInfoPerros = () =>{
     console.log(infoPerros)
     if (infoPerros) {
@@ -30,12 +37,13 @@ let actualizarInfoPerros = () =>{
         formularioActualizarInfoPerros.current["Genero"].value = infoPerros.genero
         formularioActualizarInfoPerros.current["Descripcion"].value = infoPerros.descripcion
         formularioActualizarInfoPerros.current["Caracter"].value = infoPerros.caracter
-
+        
+        // Desplazar la vista hacia el formulario
         formularioRefPerros.current.scrollIntoView({behaviour: "smooth"})
     }
 }
 
-
+// Función para actualizar la info del perro
 let updateInfoPerros = async (e)=>{
     e.preventDefault()
 
@@ -51,6 +59,7 @@ let updateInfoPerros = async (e)=>{
     }
     console.log(datosActualizadosPerros)
 
+    // Configuración de la petición de actualización
     let options = {
         method: "PUT",
         body: JSON.stringify(datosActualizadosPerros),
@@ -59,33 +68,38 @@ let updateInfoPerros = async (e)=>{
         }
     }
 
+    // Realizamos la petición de actualización a la API
     let peticion = await fetch (`${VITE_API}/perros/id/${_id}`,options)
     let datos = await peticion.json()
     console.log(datos)
-
+    
+    // Pedir la info de nuevo y desplazarse a la sección principal
     pedirInfoPerros()
     infoRefPerros.current.scrollIntoView({behaviour:"smooth"})
 }
 
+// Efecto para cargar la información del perro al montar el componente o al cambiar el _id
 useEffect(()=>{
     pedirInfoPerros()
 },[_id])
 
+// Retornamos la estructura del componente InfoPerros
 return (
     <>
       {!infoPerros ? ( <p>Cargando...</p> ) : ( <Texto {...infoPerros} actualizarInfoPerros={actualizarInfoPerros} updateInfoPerros={updateInfoPerros} formularioActualizarInfoPerros={formularioActualizarInfoPerros} formularioRefPerros={formularioRefPerros} infoRefPerros={infoRefPerros} />)}
       </>
-)
-
+  )
 }
 
+// Componente para mostrar la información del perro y el formulario de actualización
 const Texto =(props)=>{
     const {_id, imagen, nombre, raza, edad,genero, descripcion, caracter,actualizarInfoPerros,updateInfoPerros,formularioActualizarInfoPerros, formularioRefPerros, infoRefPerros} = props
     return(
         <>
         <Header/>
-       
-        <section className="Info" ref={infoRefPerros}> {/* Usar la ref aquí */}
+
+        {/* Sección de información principal del perro */}
+        <section className="Info" ref={infoRefPerros}> 
         <div className="Info-wrapper">
           <img src={imagen} alt={`Imagen de ${nombre}`} className="Info-img" />
         </div>
@@ -118,6 +132,7 @@ const Texto =(props)=>{
         </div>
       </section>
 
+      {/* Sección del formulario de actualización */}
       <section className="Actualizar" ref={formularioRefPerros}>
         <h3 className="Actualizar-h3">Actualizar información de {nombre}</h3>
         <p className="Actualizar-p">

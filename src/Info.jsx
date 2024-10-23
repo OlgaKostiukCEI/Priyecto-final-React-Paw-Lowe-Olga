@@ -1,13 +1,19 @@
+// Importaciones necesarias desde React y React Router
 import { useEffect, useRef, useState } from "react"
 import { useParams } from "react-router-dom"
 import "./Info.css"
 import { Header } from "./Components/Header"
 import { Footer } from "./Components/Footer"
 
+// Componente principal Info
 export const Info = () => {
+
+  // Obtenemos el parámetro _id de la URL
   const { _id } = useParams() 
   const [info, setInfo] = useState(null)
   const { VITE_API } = import.meta.env
+
+  // Referencias a los formularios y secciones para desplazarse con scroll
   const formularioActualizarInfo = useRef(null)
   const formularioRef = useRef(null)
   const infoRef = useRef(null)
@@ -53,6 +59,7 @@ export const Info = () => {
     }
     console.log(datosActualizados)
 
+    // Configuración de la petición de actualización
     let options = {
       method: "PUT",
       body: JSON.stringify(datosActualizados),
@@ -61,6 +68,7 @@ export const Info = () => {
       },
     }
 
+    // Realizamos la petición de actualización a la API
     let peticion = await fetch(`${VITE_API}/gatos/id/${_id}`, options)
     let datos = await peticion.json()
     console.log(datos)
@@ -70,10 +78,13 @@ export const Info = () => {
     infoRef.current.scrollIntoView({ behavior: "smooth" }) // Desplazarse a la sección principal
   }
 
+  // Efecto para cargar la información del gato al montar el componente o al cambiar el _id
   useEffect(() => {
     pedirInfo()
   }, [_id])
 
+
+  // Retornamos la estructura del componente Info
   return (
     <>
       {!info ? ( <p>Cargando...</p> ) : ( <Texto {...info} actualizarInfo={actualizarInfo} updateInfo={updateInfo}formularioActualizarInfo={formularioActualizarInfo} formularioRef={formularioRef} infoRef={infoRef} />)}
@@ -81,6 +92,7 @@ export const Info = () => {
   )
 }
 
+// Componente para mostrar la información del gato y el formulario de actualización
 const Texto = (props) => {
   const { _id, imagen, nombre, raza, edad, genero, descripcion, caracter, actualizarInfo, updateInfo, formularioActualizarInfo, formularioRef, infoRef, } = props
 
@@ -89,6 +101,7 @@ const Texto = (props) => {
     
       <Header />
   
+      {/* Sección de información principal del gato */}
       <section className="Info" ref={infoRef}> {/* Usar la ref aquí */}
         <div className="Info-wrapper">
           <img src={imagen} alt={`Imagen de ${nombre}`} className="Info-img" />
@@ -122,6 +135,7 @@ const Texto = (props) => {
         </div>
       </section>
 
+      {/* Sección del formulario de actualización */}
       <section className="Actualizar" ref={formularioRef}>
         <h3 className="Actualizar-h3">Actualizar información de {nombre}</h3>
         <p className="Actualizar-p">

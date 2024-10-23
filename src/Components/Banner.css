@@ -1,11 +1,9 @@
 
 
-/**/
+/*Banner*/
 .Banner-home {
-
     background-color: #F6F6F6;
     background-image: url('/img/banner-home.png');
-
     max-width: 1800px;
     height: 680px;
     max-height: 680px;
@@ -14,7 +12,6 @@
     justify-content: end;
     align-items: center;
     padding: 4em;
-
 }
 
 .Banner-wrapper-home {
@@ -26,7 +23,6 @@
     align-items: end;
     gap: 2rem;
     margin: 2em;
-
 }
 
 .Banner-col-home{
@@ -44,13 +40,15 @@
 .Banner-span {
     font-weight: 700;
 }
+
+
+/*Banner responsive*/
 @media (max-width:650px) {
     .Banner-home {
         background-image: url('/img/banner-home-movil-ok.png');
         display: flex;
         flex-direction: column;
-        align-items: start;
-        
+        align-items: start;  
     }
   
     .Banner-wrapper-home{

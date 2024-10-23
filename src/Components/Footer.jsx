@@ -2,6 +2,7 @@ import "./Footer.css"
 
 export const Footer = () =>{
     return(
+        //Footer
         <>
         <footer id="contacto" className="Footer">
             <div className="Footer-box">

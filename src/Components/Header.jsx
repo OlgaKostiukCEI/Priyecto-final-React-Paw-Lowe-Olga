@@ -2,14 +2,22 @@ import { useState, createContext, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Header.css'
 
+// Creamos un contexto para el componente Header
 const HeaderContext = createContext()
 
+
+// Componente principal Header
 export const Header = () => {
+
+    // Estado 'menu' que indica si el menú está abierto o cerrado, y una función 'setMenu' para actualizar su valor
     const [menu, setMenu] = useState(false)
+
+    // Función que alterna el estado del menú (abre/cierra)
     const toggleMenu = () => {
         setMenu(!menu)
     }
 
+    // Array de información del menú, con cada objeto conteniendo el texto del enlace y su ancla (id de destino)
     const info = [
         { id: 0, texto: 'Sobre Nosotros', anchor: '#sobre-nosotros' },
         { id: 1, texto: 'Gatos', anchor: '#gatos' },
@@ -17,6 +25,7 @@ export const Header = () => {
         { id: 3, texto: 'Contacto', anchor: '#contacto' },
     ]
 
+    // Retornamos el contexto que contiene la función y la información del menú
     return (
         <HeaderContext.Provider value={{ toggleMenu, info, menu }}>
             <header className='Header'>
@@ -28,6 +37,7 @@ export const Header = () => {
     );
 }
 
+// Componente Logo
 const Logo = () => {
     const navigate = useNavigate();  // Crea una instancia de navigate
 
@@ -36,12 +46,16 @@ const Logo = () => {
     };
 
     return (
-        <img  src="/Logo-yellow.png" alt="logo" className='Logo' onClick={logoClick}  // Asigna la función al evento onClick
+        // Asignamos la función al evento onClick
+        <img  src="/Logo-yellow.png" alt="logo" className='Logo' onClick={logoClick}  
 />
     )
 }
 
+// Componente Boton para abrir/cerrar el menú
 const Boton = () => {
+
+    // Obtenemos la función toggleMenu desde el contexto
     const { toggleMenu } = useContext(HeaderContext)
     return (
         <button className='Header-button' onClick={toggleMenu}>
@@ -55,7 +69,10 @@ const Boton = () => {
     );
 }
 
+// Componente Nav para la navegación del menú
 const Nav = () => {
+
+    // Obtenemos el estado 'menu' y la información del contexto
     const { menu, info } = useContext(HeaderContext);
     return (
         <nav className={`Header-nav ${menu ? 'isActive' : ''}`}>
@@ -68,7 +85,10 @@ const Nav = () => {
     );
 }
 
+// Componente Li para cada enlace del menú
 const Li = (props) => {
+
+    // Obtenemos 'texto' y 'anchor' de las props recibidas
     const { texto, anchor } = props;
     return (
         <li className='Header-li'>
