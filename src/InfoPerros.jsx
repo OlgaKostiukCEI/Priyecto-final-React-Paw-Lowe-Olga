@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import "./InfoPerros.css"
 import { Header } from "./Components/Header"
+import { Footer } from "./Components/Footer"
 
 
 export const InfoPerros =() =>{
@@ -83,6 +84,7 @@ const Texto =(props)=>{
     return(
         <>
         <Header/>
+       
         <section className="Info" ref={infoRefPerros}> {/* Usar la ref aquí */}
         <div className="Info-wrapper">
           <img src={imagen} alt={`Imagen de ${nombre}`} className="Info-img" />
@@ -136,6 +138,7 @@ const Texto =(props)=>{
           <input className="Input-btn" type="submit" value="Actualizar información" />
         </form>
       </section>
+      <Footer/>
         </>
     )
 }

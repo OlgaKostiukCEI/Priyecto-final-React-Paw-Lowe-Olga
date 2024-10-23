@@ -1,10 +1,18 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import {useNavigate} from "react-router-dom"
 import './Login.css'
 export const Login = () => {
   const navigate = useNavigate()
   const [isLogin, setIsLogin] = useState(false)
   const loginFormRef = useRef(null);
+
+  useEffect(()=>{
+
+    if (localStorage.getItem('login')){
+      navigate('/home')
+    }
+  },[])
+
   const formSubmit = async (e) => {
     e.preventDefault()
 
@@ -27,11 +35,14 @@ export const Login = () => {
       signal : controller.signal
     }
 
-    const buscar = await fetch(`${VITE_API}/users`, options)
+    const buscar = await fetch(`${VITE_API}/users`, options)  
     const respuesta = await buscar.json()
      
       if (respuesta ){
+        console.log('Haz iniciado la sesion')
+        localStorage.setItem('login', 'true')
         navigate('/home')
+
       }else {
         setIsLogin(null)
       }

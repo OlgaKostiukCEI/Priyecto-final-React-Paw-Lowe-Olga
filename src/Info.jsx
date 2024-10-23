@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import { useParams } from "react-router-dom"
 import "./Info.css"
 import { Header } from "./Components/Header"
+import { Footer } from "./Components/Footer"
 
 export const Info = () => {
   const { _id } = useParams() 
@@ -87,6 +88,7 @@ const Texto = (props) => {
     <>
     
       <Header />
+  
       <section className="Info" ref={infoRef}> {/* Usar la ref aquí */}
         <div className="Info-wrapper">
           <img src={imagen} alt={`Imagen de ${nombre}`} className="Info-img" />
@@ -140,7 +142,7 @@ const Texto = (props) => {
           <input className="Input-btn" type="submit" value="Actualizar información" />
         </form>
       </section>
-      
+      <Footer/>
     </>
   )
 }

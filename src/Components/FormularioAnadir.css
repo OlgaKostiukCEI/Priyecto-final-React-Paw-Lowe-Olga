@@ -25,3 +25,18 @@ input::placeholder {
     cursor: pointer;
     color: var(--white);
 }
+
+@media (max-width:650px) {
+    .Formulario {
+        display: flex;
+        flex-direction: column;
+}
+    .Formulario-input{
+        width: 90%;
+
+    }
+
+    .Input-btn {
+        width: 90%;
+    }
+}

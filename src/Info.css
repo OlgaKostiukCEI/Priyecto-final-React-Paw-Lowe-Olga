@@ -84,4 +84,10 @@
         display: flex;
         flex-direction: column;
 }
+
+    .Info-col-detail{
+        display: flex;
+        flex-direction: column;
+        gap: .1em;
+    }
 }
