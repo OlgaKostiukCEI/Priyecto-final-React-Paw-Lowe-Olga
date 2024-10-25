@@ -7,9 +7,8 @@ import { Footer } from "./Components/Footer"
 
 // Componente principal Info
 export const Info = () => {
-
   // Obtenemos el parámetro _id de la URL
-  const { _id } = useParams() 
+  const { _id } = useParams()
   const [info, setInfo] = useState(null)
   const { VITE_API } = import.meta.env
 
@@ -83,30 +82,54 @@ export const Info = () => {
     pedirInfo()
   }, [_id])
 
-
   // Retornamos la estructura del componente Info
   return (
     <>
-      {!info ? ( <p>Cargando...</p> ) : ( <Texto {...info} actualizarInfo={actualizarInfo} updateInfo={updateInfo}formularioActualizarInfo={formularioActualizarInfo} formularioRef={formularioRef} infoRef={infoRef} />)}
+      {!info ? (
+        <p>Cargando...</p>
+      ) : (
+        <Texto
+          {...info}
+          actualizarInfo={actualizarInfo}
+          updateInfo={updateInfo}
+          formularioActualizarInfo={formularioActualizarInfo}
+          formularioRef={formularioRef}
+          infoRef={infoRef}
+        />
+      )}
     </>
   )
 }
 
 // Componente para mostrar la información del gato y el formulario de actualización
 const Texto = (props) => {
-  const { _id, imagen, nombre, raza, edad, genero, descripcion, caracter, actualizarInfo, updateInfo, formularioActualizarInfo, formularioRef, infoRef, } = props
+  const {
+    _id,
+    imagen,
+    nombre,
+    raza,
+    edad,
+    genero,
+    descripcion,
+    caracter,
+    actualizarInfo,
+    updateInfo,
+    formularioActualizarInfo,
+    formularioRef,
+    infoRef,
+  } = props
 
   return (
     <>
-    
       <Header />
-  
+
       {/* Sección de información principal del gato */}
-      <section className="Info" ref={infoRef}> {/* Usar la ref aquí */}
+      <section className="Info" ref={infoRef}>
+        {" "}
+        {/* Usar la ref aquí */}
         <div className="Info-wrapper">
           <img src={imagen} alt={`Imagen de ${nombre}`} className="Info-img" />
         </div>
-
         <div className="Info-col">
           <h1 className="Info-col-nombre">{nombre}</h1>
           <p className="Info-col-description">{descripcion}</p>
@@ -129,8 +152,14 @@ const Texto = (props) => {
               </li>
             </ul>
           </div>
-          <p> *Se entrega con contrato de adopción, con chip, vacunada, desparasitada y con compromiso de esterilización. </p>
-          <button className="Boton" onClick={actualizarInfo}>Actualizar</button>
+          <p>
+            {" "}
+            *Se entrega con contrato de adopción, con chip, vacunada,
+            desparasitada y con compromiso de esterilización.{" "}
+          </p>
+          <button className="Boton" onClick={actualizarInfo}>
+            Actualizar
+          </button>
           {/* Al hacer click, llenamos el formulario */}
         </div>
       </section>
@@ -144,19 +173,67 @@ const Texto = (props) => {
           hasta juguetones y aventureros.
         </p>
 
-        <form className="Actualizar-form" ref={formularioActualizarInfo} onSubmit={updateInfo}>
-          <input className="Formulario-input" type="text" name="_id" placeholder="_id" />
-          <input className="Formulario-input" type="url" name="Imagen" placeholder="Imagen" />
-          <input className="Formulario-input" type="text" name="Nombre" placeholder="Nombre" />
-          <input className="Formulario-input" type="text" name="Raza" placeholder="Raza" />
-          <input className="Formulario-input" type="number" name="Edad" placeholder="Edad" />
-          <input className="Formulario-input" type="text" name="Genero" placeholder="Genero" />
-          <input className="Formulario-input" type="text" name="Descripcion" placeholder="Descripcion" />
-          <input className="Formulario-input" type="text" name="Caracter" placeholder="Caracter" />
-          <input className="Input-btn" type="submit" value="Actualizar información" />
+        <form
+          className="Actualizar-form"
+          ref={formularioActualizarInfo}
+          onSubmit={updateInfo}
+        >
+          <input
+            className="Formulario-input"
+            type="text"
+            name="_id"
+            placeholder="_id"
+          />
+          <input
+            className="Formulario-input"
+            type="url"
+            name="Imagen"
+            placeholder="Imagen"
+          />
+          <input
+            className="Formulario-input"
+            type="text"
+            name="Nombre"
+            placeholder="Nombre"
+          />
+          <input
+            className="Formulario-input"
+            type="text"
+            name="Raza"
+            placeholder="Raza"
+          />
+          <input
+            className="Formulario-input"
+            type="number"
+            name="Edad"
+            placeholder="Edad"
+          />
+          <input
+            className="Formulario-input"
+            type="text"
+            name="Genero"
+            placeholder="Genero"
+          />
+          <input
+            className="Formulario-input"
+            type="text"
+            name="Descripcion"
+            placeholder="Descripcion"
+          />
+          <input
+            className="Formulario-input"
+            type="text"
+            name="Caracter"
+            placeholder="Caracter"
+          />
+          <input
+            className="Input-btn"
+            type="submit"
+            value="Actualizar información"
+          />
         </form>
       </section>
-      <Footer/>
+      <Footer />
     </>
   )
 }
